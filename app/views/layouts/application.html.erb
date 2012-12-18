@@ -1,14 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
   <title>AutocadHelp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <link rel="stylesheet" href="https://app.divshot.com/css/divshot-util.css">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<div class="btn-group"></div>
+<div class="container">
+    <div class="row">
+        <div class="span8">
+            <img style="" src="http://placehold.it/48x48" height="48" width="48">
+        </div>
+        <div class="span4">тел. 8(963) 604-87-38
+            <br>
+            <a href="mailto:naidenova_marina@rambler.ru?subject=%D0%A7%D0%B5%D1%80%D1%82%D0%B5%D0%B6%D0%B8+%D0%B2+Autocad">naidenova_marina@rambler.ru</a>
+        </div>
+    </div>
+</div>
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="navbar-content">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="#">Главная</a>
+                    </li>
+                    <li>
+                        <a href="#">Примеры</a>
+                    </li>
+                    <li>
+                        <a href="#">Цены</a>
+                    </li>
+                    <li>
+                        <a href="#">Контакты</a>
+                    </li>
+                    <li>
+                        <a href="#">Скачать чертежи!</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 <%= yield %>
 
+<div class="well">
+    <br>
+    <div class="row">
+        <div class="span8">© 2012 autocad-help.ru</div>
+        <div class="span3">тел. 8(963) 604-87-38
+            <br>
+            <a href="mailto:naidenova_marina@rambler.ru?subject=%D0%A7%D0%B5%D1%80%D1%82%D0%B5%D0%B6%D0%B8+%D0%B2+Autocad">naidenova_marina@rambler.ru</a>
+            <br>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -48,7 +48,11 @@ AutocadHelp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'main_page#index'
+
+  match 'not_found' => 'main_page#not_found', :as => 'not_found'
+
+  match '*paths' => 'main_page#not_found'
 
   # See how all your routes lay out with "rake routes"
 
