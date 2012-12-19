@@ -1,4 +1,6 @@
 AutocadHelp::Application.routes.draw do
+  get "sections/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -46,9 +48,9 @@ AutocadHelp::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => 'main_page#index'
+  resources :sections, :only => [:show]
+
+  root :to => 'sections#show'
 
   match 'not_found' => 'main_page#not_found', :as => 'not_found'
 
