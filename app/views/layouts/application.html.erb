@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<% if @section.id == Section.main.id %>
+<% if @section && @section.id == Section.main.id %>
 <div style="position:absolute;left:0px;top:0px;width:100%;display:none;z-index:1">
 Чертёжные работы в Автокад, черчение по ГОСТ в Autocad, черчение на компьютере в акаде, 
 нарисовать чертеж, начертить чертеж, перечертить, вычерчивание на компьютере, сделать чертеж, 
@@ -52,7 +52,7 @@
                 <div class="navbar-content">
                     <ul class="nav">
                         <% Section.all.each do |section| %>
-                            <%= content_tag :li, :class => (section == @section ? 'active' : nil) do %>
+                            <%= content_tag :li, :class => (@section && section == @section ? 'active' : nil) do %>
                                 <%= link_to section.title, (section.main? ? '/' : section) %>
                             <% end %>
                         <% end %>
@@ -61,6 +61,20 @@
             </div>
         </div>
     </div>
+
+    <% unless notice.blank? %>
+        <div class="alert alert-success">
+            <a class="close" data-dismiss="alert">×</a>
+            <span><%= notice %></span>
+        </div>
+    <% end %>
+
+    <% unless alert.blank? %>
+        <div class="alert alert-danger">
+            <a class="close" data-dismiss="alert">×</a>
+            <span><%= alert %></span>
+        </div>
+    <% end %>
 
     <div class="page">
         <%= yield %>

@@ -12,6 +12,11 @@ group :assets do
 end
 gem 'jquery-rails'
 gem 'capistrano'
+gem 'rails_admin', "0.3.0"
+gem "devise", "2.0.4"
+gem "ckeditor"
+gem "paperclip"
+gem 'dynamic_sitemaps', "1.0.5"
 #gem 'ruby-debug19', :require => 'ruby-debug'
 
 # gem 'rspec', '2.9.0'
