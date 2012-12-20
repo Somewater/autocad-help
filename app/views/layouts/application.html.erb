@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>AutocadHelp</title>
+  <title>Выполнение чертежей в AutoCAD</title>
+  <meta http-equiv="Content-Language" content="ru">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="keywords" content="Чертежи в AutoCAD dwg">
+  <meta name="description" content="Чертежи в Автокад, начертить в AutoCAD, дипломы, курсовые">
+  <meta name="REVISIT-AFTER" CONTENT="5 days">
   <!--link rel="stylesheet" href="https://app.divshot.com/css/divshot-util.css"-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -20,6 +24,15 @@
   </script>
 </head>
 <body>
+
+<% if @section.id == Section.main.id %>
+<div style="position:absolute;left:0px;top:0px;width:100%;display:none;z-index:1">
+Чертёжные работы в Автокад, черчение по ГОСТ в Autocad, черчение на компьютере в акаде, 
+нарисовать чертеж, начертить чертеж, перечертить, вычерчивание на компьютере, сделать чертеж, 
+оцифровать чертеж, перенос чертежей с бумаги на компьютер, перечерчивание, проектирование, 
+черчение с эскизов, перенесение чертежей, цифровой формат.
+</div>
+<% end %>
 
 <div class="btn-group"></div>
 <div class="container">
