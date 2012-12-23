@@ -54,6 +54,10 @@ AutocadHelp::Application.routes.draw do
 
   resources :sections, :only => [:show]
 
+  match 'sitemap.xml' => 'sitemaps#sitemap'
+
+  match "search", :to => 'search#search_words'
+
   root :to => 'sections#show'
 
   match 'not_found' => 'main_page#not_found', :as => 'not_found'

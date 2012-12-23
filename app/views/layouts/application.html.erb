@@ -39,7 +39,7 @@
     <div class="row" style="margin-bottom: 15px;">
         <div class="span8">
             <a href="/">
-                <img style="" src="/assets/logo.png" height="66" width="308">
+                <img style="" src="<%= asset_path('logo.png') %>" height="66" width="308">
             </a>
         </div>
         <div class="span4"><%= I18n.t('phone') %>
@@ -55,10 +55,16 @@
                     <ul class="nav">
                         <% Section.find_all_by_visible(true).each do |section| %>
                             <%= content_tag :li, :class => (@section && section == @section ? 'active' : nil) do %>
-                                <%= link_to section.title, (section.main? ? '/' : section) %>
+                                <%= link_to (section.main? ? '/' : section) do %>
+                                    <% if section.drawings? %><i class="icon-download"></i><% end %>
+                                    <%= section.title %>
+                                <% end %>
                             <% end %>
                         <% end %>
                     </ul>
+                    <form action="/search" class="navbar-search pull-right">
+                        <input name="words" type="text" placeholder="<%= I18n.t('search.site_search') %>" class="search-query span2">
+                    </form>
                 </div>
             </div>
         </div>
@@ -78,7 +84,7 @@
         </div>
     <% end %>
 
-    <div class="row" style="margin-left: 5px">
+    <div id="page" class="row">
          <%= yield %>
     </div>
 
