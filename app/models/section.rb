@@ -1,5 +1,5 @@
 class Section < ActiveRecord::Base
-  attr_accessible :name, :title
+  attr_accessible :name, :title, :weight, :visible
 
   MAIN_NAME = 'main'
 

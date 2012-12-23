@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="navbar-content">
                     <ul class="nav">
-                        <% Section.all.each do |section| %>
+                        <% Section.find_all_by_visible(true).each do |section| %>
                             <%= content_tag :li, :class => (@section && section == @section ? 'active' : nil) do %>
                                 <%= link_to section.title, (section.main? ? '/' : section) %>
                             <% end %>
@@ -78,8 +78,8 @@
         </div>
     <% end %>
 
-    <div class="page">
-        <%= yield %>
+    <div class="row" style="margin-left: 5px">
+         <%= yield %>
     </div>
 
 
