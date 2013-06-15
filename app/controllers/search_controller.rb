@@ -57,11 +57,12 @@ class SearchController < ApplicationController
 
       translations = []
       translated_class_to_fields = {}
+      coalesce = (ActiveRecord::Base.configurations[Rails.env]['adapter'] rescue 'mysql')[0..3] == 'mysq' ? "IFNULL" : "COALESCE" 
       [TextPage].each do |model_class|
         translated_fields = model_class.columns.select{|c| c.type == :text}.map(&:name)
         if(translated_fields.size > 0)
           @words.each do |word|
-            result = model_class.where(["CONCAT(#{translated_fields.map{|m| "IFNULL(#{m},'')" }.join(',')}) LIKE (?)", '%' + word.to_s + '%'])
+            result = model_class.where(["CONCAT(#{translated_fields.map{|m| "#{coalesce}(#{m},'')" }.join(',')}) LIKE (?)", '%' + word.to_s + '%'])
             translations << result.to_a if result && result.size > 0
           end
           translated_class_to_fields[model_class] = [model_class, translated_fields]
