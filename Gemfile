@@ -33,4 +33,4 @@ gem 'dynamic_sitemaps', "1.0.5"
 # gem 'dynamic_sitemaps', "1.0.5"
 # gem 'passenger_monit'
 
-gem 'thin'
+gem 'unicorn'
